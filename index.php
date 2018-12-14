@@ -10,7 +10,7 @@
 <body class="text-center">
     <form class="form-signin" action="#" method="POST">
       <h1 class="h3 mb-3 font-weight-normal">Choose An Option</h1>
-      <a href="#" class="btn btn-lg btn-primary btn-block">Teachers Login </a>
+      <a href="teachers-login.php" class="btn btn-lg btn-primary btn-block">Teachers Login </a>
       <a href="admin.php" class="btn btn-lg btn-danger btn-block">Admin Login </a>
     </form>
   </body>
