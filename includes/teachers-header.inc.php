@@ -9,11 +9,15 @@ $user=$row['id'];
 $log_user_name=$row['name'];
 $log_user_email=$row['email'];
 $db_password=$row['password'];
+$subject=$row['courses'];
 }
 }
 else
 {
 $user="";
+}
+if ($user==""){
+  die("ERROR");
 }
 ?>
 <!DOCTYPE html>
@@ -44,8 +48,6 @@ $user="";
           More
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
           <a class="dropdown-item" href="logout.php">Logout</a>
         </div>
       </li>

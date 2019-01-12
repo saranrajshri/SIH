@@ -1,6 +1,6 @@
 <?php include("./includes/teachers-header.inc.php");?>
 <?php
-$date=date("d-m-y");
+$date=date("y-m-d");
 $check_date=date("y-m-d");
 $present=@$_POST['present'];
 $absent=@$_POST['absent'];
@@ -8,10 +8,11 @@ if($present){
     $check=mysql_query("SELECT * FROM attendence WHERE regno='$user' AND a_date='$check_date'");
     $count=mysql_num_rows($check);
     if($count==0){
-        $query=mysql_query("INSERT INTO attendence VALUES('','$log_user_name','$user','$date','yes')");
+        $query=mysql_query("INSERT INTO attendence VALUES('','$log_user_name','$user','$date','yes','$subject')");
         header("location:teachers-dashboard.php");
     }
 }
+/*
 if($absent){
     $check=mysql_query("SELECT * FROM attendence WHERE regno='$user' AND a_date='$check_date'");
     $count=mysql_num_rows($check);
@@ -20,6 +21,7 @@ if($absent){
         header("location:teachers-dashboard.php");
     }
 }
+*/
 ?>
 <div class="container">
     <div class="row">
@@ -36,14 +38,14 @@ if($absent){
                             if($count==0){
                                 $class_var="";
                                 echo '
-                                    <h3 class="text-danger">Today\'s Attendence Not Regsitered</h3>
+                                    <h3 class="text-danger">Today\'s Attendence Not Registered</h3>
                                 ';
                             }
                             else
                             {
                                 $class_var="disabled";
                               echo '
-                                    <h3 class="text-success">Today\'s Attendence  Regsitered</h3>
+                                    <h3 class="text-success">Today\'s Attendence  Registered</h3>
                                 ';
                             }
                         ?>
@@ -52,8 +54,7 @@ if($absent){
                         <hr>
                         <form action="#" method="post">
                             <input type="submit" name="present" value="Present" class="btn <?php echo $class_var;?>btn-success">
-                            or
-                            <input type="submit" name="absent" value="Absent" class="btn <?php echo $class_var;?> btn-danger">
+                            <!-- <input type="submit" name="absent" value="Absent" class="btn <?php echo $class_var;?> btn-danger"> -->
                         </form>
                     </center>
                 </div>

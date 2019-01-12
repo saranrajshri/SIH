@@ -14,6 +14,9 @@ else
 {
 $user="";
 }
+if ($user==""){
+  die("ERROR");
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -24,6 +27,7 @@ $user="";
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <style type="text/css">
     #navabr>li{
       margin-left: 20px;
@@ -39,27 +43,25 @@ $user="";
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav" id="navabr">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Teachers Attendence <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="admin-dashboard.php">Teachers Attendence</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Generate Timetable</a>
+        <a class="nav-link" href="generate-timetable.php">Generate Timetable</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="add-teachers.php?profile_id=<?php echo $user;?>">Add Teacher</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Add Classrooms</a>
+        <a class="nav-link" href="add-classroom.php">Add Classrooms</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Add Courses</a>
+        <a class="nav-link" href="add-courses.php">Add Courses</a>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           More
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
           <a class="dropdown-item" href="logout.php">Logout</a>
         </div>
       </li>

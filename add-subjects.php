@@ -7,6 +7,11 @@ $semester=@$_POST['semester'];
 if($submit){
     if($subjectname){
         mysql_query("INSERT INTO subjects VALUES('','$subjectname','$semester','$coursename')");
+        $search=mysql_query("SELECT subjectname FROM singlebase_subjects WHERE subjectname='$subjectname'");
+        $count=mysql_num_rows($search);
+        if($count==0){
+          mysql_query("INSERT INTO singlebase_subjects VALUES('','$subjectname')");
+        }
         header("location:add-subjects.php?coursename=$coursename");
     }
 }
@@ -41,7 +46,7 @@ if($submit){
                                 </div>
                         </div>
                         </div>
-                        <input type="submit" name="submit"  value="Add Course" class="btn btn-block btn-info">
+                        <input type="submit" name="submit"  value="Add Subject" class="btn btn-block btn-primary">
                     </form>
                 </div>
             </div>
